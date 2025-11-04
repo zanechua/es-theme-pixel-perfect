@@ -7,22 +7,15 @@ Website:  games.jessikarocha.com
 <theme>
   <formatVersion>7</formatVersion>
 
-  <!-- HELP -->
+  <!-- View que configura barra de ajuda e exibe borda de overlay em todos os modos -->
   <view name="system, basic, detailed, grid, video">
     <helpsystem name="help">
       <fontPath>${fontHelper}</fontPath>
-      <fontSize>${fontSizeBody-medium}</fontSize>
-      <fontSize ifSubset="FontSize:large">${fontSizeBody-large}</fontSize>
-      <fontSize ifSubset="FontSize:small">${fontSizeBody-small}</fontSize>
       <origin>0 0.5</origin>
       <pos>0.016666667 0.96</pos>
     </helpsystem>
 
     <image name="borderOverlay" extra="true">
-      <path ifSubset="Ratio:ratio32">./assets/ratio32/borders.png</path>
-      <path ifSubset="Ratio:ratio43">./assets/ratio43/borders.png</path>
-      <path ifSubset="Ratio:ratio53">./assets/ratio53/borders.png</path>
-
       <pos>0 0</pos>
       <origin>0 0</origin>
       <size>1 1</size>
@@ -30,23 +23,17 @@ Website:  games.jessikarocha.com
     </image>
   </view>
 
-  <!-- GENERAL VIEW SETTINGS -->
+  <!-- View com configurações comuns para basic, detailed, grid e video -->
   <view name="basic, detailed, grid, video">
     <text name="logoText">
       <fontPath>${fontBold}</fontPath>
-      <fontSize>${fontSizeH2-medium}</fontSize>
-      <fontSize ifSubset="FontSize:large">${fontSizeH2-large}</fontSize>
-      <fontSize ifSubset="FontSize:small">${fontSizeH2-small}</fontSize>
-      <forceUppercase>0</forceUppercase>
+      <forceUppercase>1</forceUppercase>
       <alignment>left</alignment>
       <zIndex>5</zIndex>
     </text>
 
     <textlist name="gamelist">
       <fontPath>${fontRegular}</fontPath>
-      <fontSize>${fontSizeBody-medium}</fontSize>
-      <fontSize ifSubset="FontSize:large">${fontSizeBody-large}</fontSize>
-      <fontSize ifSubset="FontSize:small">${fontSizeBody-small}</fontSize>
       <alignment>left</alignment>
       <origin>0 0</origin>
       <zIndex>5</zIndex>
@@ -61,30 +48,14 @@ Website:  games.jessikarocha.com
     </image>
 
     <image name="cover_list" extra="true">
-      <path>./assets/systems/${system.theme}.webp</path>
-      <opacity>0.3</opacity>
       <size>1 0</size>
       <origin>0 0.5</origin>
-      <pos>0 0.125</pos>
+      <pos>0 0.225</pos>
+      <minSize>1 0.45</minSize>
       <zIndex>-5</zIndex>
     </image>
 
-    <image name="cover_list" extra="true" ifSubset="Background Style:custom">
-      <path>./customBackground/${system.theme}.jpg</path>
-      <path>./customBackground/${system.theme}.jpeg</path>
-      <path>./customBackground/${system.theme}.png</path>
-      <path>./customBackground/${system.theme}.webp</path>
-
-      <path>./customBackground/general.jpg</path>
-      <path>./customBackground/general.jpeg</path>
-      <path>./customBackground/general.png</path>
-      <path>./customBackground/general.webp</path>
-    </image>
-
-    <image name="custom_bg_fg" extra="true">
-      <path>./assets/ratio32/gamelist-basic.png</path>
-      <path ifSubset="Ratio:ratio43">./assets/ratio43/gamelist-basic.png</path>
-      <path ifSubset="Ratio:ratio53">./assets/ratio53/gamelist-basic.png</path>
+    <image name="background_overlay" extra="true">
       <size>1 1</size>
       <origin>0 0</origin>
       <pos>0 0</pos>
@@ -92,147 +63,102 @@ Website:  games.jessikarocha.com
     </image>
   </view>
 
+  <!-- View com configurações partilhadas entre basic, detailed e video -->
   <view name="basic, detailed, video">
     <text name="logoText">
-      <pos>0.033333 0.1</pos>      <!--480x320 / 16x 32y-->
-      <size>0.933333 ${fontSizeH2-medium}</size>      <!-- 480x320 / 448x -->
+      <pos>0.033333 0.1</pos>
+      <size>0.933333 ${fontSizeH2-medium}</size>
       <origin>0 0.5</origin>
     </text>
 
     <textlist name="gamelist">
-      <pos>0 0.2</pos>      <!-- 480x320 / 0x 64y -->
-      <horizontalMargin>0.033333</horizontalMargin>      <!-- 16px -->
-
-      <lineSpacing>1.55</lineSpacing>
-      <lineSpacing ifHelpPrompts="true">1.6</lineSpacing>
-      <lineSpacing ifHelpPrompts="true" ifSubset="FontSize:small">1.675</lineSpacing>
-
-      <lineSpacing ifSubset="Ratio:ratio43">1.5</lineSpacing>
-      <lineSpacing ifSubset="Ratio:ratio43" ifHelpPrompts="true">1.525</lineSpacing>
-
-      <lineSpacing ifSubset="Ratio:ratio53">1.6</lineSpacing>
-      <lineSpacing ifSubset="Ratio:ratio53" ifHelpPrompts="true">1.575</lineSpacing>
+      <pos>0 0.2</pos>
+      <horizontalMargin>0.033333</horizontalMargin>
     </textlist>
   </view>
 
-  <view name="video">
-    <textlist name="gamelist">
-      <lineSpacing ifHelpPrompts="true" ifSubset="FontSize:small">1.7</lineSpacing>
-    </textlist>
-  </view>
-
+  <!-- View específica para basic -->
   <view name="basic">
     <textlist name="gamelist">
-      <size>1 0.8</size>      <!-- 480x320 / 480x 256y-->
-      <size ifHelpPrompts="true">1 0.725</size>      <!-- 480x320 / 480x 232y-->
+      <size>1 0.8</size>
+      <size ifHelpPrompts="true">1 0.725</size>
     </textlist>
   </view>
 
+  <!-- View com configurações partilhadas entre detailed, video e grid -->
+  <view name="detailed, video, grid">
+    <text name="md_lbl_rating, md_lbl_releasedate, md_lbl_developer, md_lbl_publisher, md_lbl_genre, md_lbl_players, md_lbl_lastplayed, md_lbl_playcount, md_releasedate, md_developer, md_publisher, md_genre, md_players, md_lastplayed, md_playcount, md_description, md_name">
+      <visible>false</visible>
+      <fontPath>${fontRegular}</fontPath>
+      <lineSpacing>1.25</lineSpacing>
+    </text>
+
+    <datetime name="md_releasedate, md_lastplayed">
+      <visible>false</visible>
+    </datetime>
+  </view>
+
+  <!-- View específica para detailed -->
   <view name="detailed">
     <textlist name="gamelist">
-      <size>0.466667 0.8</size>      <!-- 480x320 / 224x 256y-->
-      <size ifHelpPrompts="true">0.466667 0.725</size>      <!-- 480x320 / 224x 232y-->
+      <size>0.466667 0.8</size>
+      <size ifHelpPrompts="true">0.466667 0.725</size>
     </textlist>
 
-    <image name="md_marquee">
-      <pos>0.733333 0.25</pos>      <!-- 480x320 / 352x 80y -->
+    <image name="md_image">
+      <pos>0.733333 0.525</pos>
       <origin>0.5 0.5</origin>
-      <minSize>0.4 0.175</minSize>      <!-- 480x320 / 192x 56y -->
+      <maxSize>0.466667 0.55</maxSize>
+      <zIndex>5</zIndex>
+      <roundCorners>0.05</roundCorners>
+    </image>
+
+    <image name="md_marquee">
+      <pos>0.733333 0.25</pos>
+      <origin>0.5 0.5</origin>
+      <maxSize>0.4 0.175</maxSize>
       <zIndex>6</zIndex>
     </image>
-      
-    <video name="md_video">
-      <pos>0.733333 0.525</pos>      <!-- 480x320 / (240 + maxWidth / 2 = 352)x (80 + maxHeight / 2 = 168)y -->
-      <origin>0.5 0.5</origin>
-      <maxSize>0.466667 0.55</maxSize>      <!-- 480x320 / 224x 176y -->
-      <delay>1</delay>
-      <showSnapshotNoVideo>true</showSnapshotNoVideo>
-      <showSnapshotDelay>true</showSnapshotDelay>
-      <effect>none</effect>
-
-      <snapshotSource ifSubset="VideoSnapshot:videoThumbnail|videoDefault">thumbnail</snapshotSource>
-      <snapshotSource ifSubset="VideoSnapshot:videoScreenshot">image</snapshotSource>
-      <snapshotSource ifSubset="VideoSnapshot:videoMarquee">marquee</snapshotSource>
-      
-      <roundCorners>0.03</roundCorners>
-      <zIndex>5</zIndex>
-    </video>
-      
-    <text name="md_gametime">
-      <fontSize>0.029</fontSize>
-      <size>0.09</size>
-      <pos>0.53 0.83125</pos>
-      <visible>true</visible>
-      <color>${sectColor}</color>
-      <fontPath>${fontLight}</fontPath>
-    </text>
 
     <rating name="md_rating">
       <origin>0 0</origin>
-
-      <pos>0.70 0.83125</pos>      <!-- 480x320 / 304x 272y-->
-      <pos ifSubset="Ratio:ratio43">0.6975 0.83125</pos>
-      <pos ifSubset="Ratio:ratio53">0.71 0.83125</pos>
-
-      <size>0.075</size>
-      <size ifSubset="Ratio:ratio43">0.066667</size>
-
       <filledPath>./assets/icons/star.svg</filledPath>
       <unfilledPath>./assets/icons/star_border.svg</unfilledPath>
-
       <zIndex>5</zIndex>
     </rating>
-
-    <text name="md_lbl_rating, md_lbl_releasedate, md_lbl_developer, md_lbl_publisher, md_lbl_genre, md_lbl_players, md_lbl_lastplayed, md_lbl_playcount, md_releasedate, md_developer, md_publisher, md_genre, md_players, md_lastplayed, md_playcount, md_description, md_name">
-      <visible>false</visible>
-    </text>
-
-    <datetime name="md_releasedate, md_lastplayed">
-      <visible>false</visible>
-    </datetime>
   </view>
 
-
+  <!-- View específica para video -->
   <view name="video">
     <image name="md_marquee">
-      <pos>0.2 0.1875</pos>      <!-- 480x320 / (240 + maxWidth / 2 = 352)x (80 + maxHeight / 2 = 168)y -->
+      <pos>0.2 0.1875</pos>
       <origin>0.5 0.5</origin>
-      <maxSize>0.333333333 0.325</maxSize>      <!-- 480x320 / 224x 176y -->
+      <maxSize>0.333333333 0.325</maxSize>
+    </image>
+
+    <image name="md_image">
+      <origin>0.5 0.5</origin>
+      <pos>0.7 0.25</pos>
+      <minSize>0.7 0.55</minSize>
+      <zIndex>-1</zIndex>
     </image>
 
     <video name="md_video">
-      <origin>0 0.5</origin>
-      <pos>0.4 0.2875</pos> <!-- 192x 92y -->
-      <minSize>0.6 0.575</minSize> <!-- 288x 184y -->
-      <delay>1</delay>
-      <showSnapshotNoVideo>true</showSnapshotNoVideo>
-      <showSnapshotDelay>true</showSnapshotDelay>
-      <effect>none</effect>
-
-      <snapshotSource ifSubset="VideoSnapshot:videoThumbnail|videoDefault">thumbnail</snapshotSource>
-      <snapshotSource ifSubset="VideoSnapshot:videoScreenshot">image</snapshotSource>
-      <snapshotSource ifSubset="VideoSnapshot:videoMarquee">marquee</snapshotSource>
-      
-      <roundCorners>0.03</roundCorners>
+      <origin>0.5 0.5</origin>
+      <pos>0.7 0.25</pos>
+      <minSize>0.7 0.55</minSize>
       <zIndex>0</zIndex>
+      <delay>1</delay>
+      <showSnapshotNoVideo>false</showSnapshotNoVideo>
+      <showSnapshotDelay>false</showSnapshotDelay>
+      <effect>none</effect>
     </video>
-
-    <text name="md_lbl_rating, md_lbl_releasedate, md_lbl_developer, md_lbl_publisher, md_lbl_genre, md_lbl_players, md_lbl_lastplayed, md_lbl_playcount, md_releasedate, md_developer, md_publisher, md_genre, md_players, md_lastplayed, md_playcount, md_description, md_name">
-      <visible>false</visible>
-    </text>
-
-    <datetime name="md_releasedate, md_lastplayed">
-      <visible>false</visible>
-    </datetime>
 
     <rating name="md_rating">
       <visible>false</visible>
     </rating>
 
-    <image name="custom_bg_fg" extra="true">
-      <path>./assets/ratio32/gamelist-video.png</path>
-      <path ifSubset="Ratio:ratio43">./assets/ratio43/gamelist-video.png</path>
-      <path ifSubset="Ratio:ratio53">./assets/ratio53/gamelist-video.png</path>
+    <image name="background_overlay" extra="true">
       <size>1 1</size>
       <origin>0 0</origin>
       <pos>0 0</pos>
@@ -241,8 +167,8 @@ Website:  games.jessikarocha.com
 
     <textlist name="gamelist">
       <pos>0 0.45</pos>
-      <size>1 0.55</size>      <!-- 480x320 / 480x 176y-->
-      <size ifHelpPrompts="true">1 0.475</size>      <!-- 480x320 / 480x 152y-->
+      <size>1 0.55</size>
+      <size ifHelpPrompts="true">1 0.475</size>
     </textlist>
 
     <text name="logoText">
@@ -250,5 +176,15 @@ Website:  games.jessikarocha.com
       <pos>0.033333333 0.4</pos>
     </text>
   </view>
-
+  
+  <!-- Subset que permite selecionar a proporção da tela conforme o dispositivo ou preferência -->
+  <subset name="Ratio" displayName="Screen ratio">
+    <include name="ratio43" ifArch="rg353p,rg351mp,rg351v,amberelec-rg353p,amberelec-rg351mp,amberelec-rg351v,knulli-rg40xx-v,rg40xxv" displayName="4:3 (Default)">./aspect/4-3.xml</include>
+    <include name="ratio32" ifArch="rg351p,amberelec-rg351p" displayName="3:2 (Default)">./aspect/3-2.xml</include>
+    <include name="ratio53" ifArch="rg503,rg552,amberelec-rg503,amberelec-rg552" displayName="5:3 (Default)">./aspect/5-3.xml</include>
+    
+    <include name="ratio43" displayName="4:3">./aspect/4-3.xml</include>
+    <include name="ratio32" displayName="3:2">./aspect/3-2.xml</include>
+    <include name="ratio53" displayName="5:3">./aspect/5-3.xml</include>
+  </subset>
 </theme>

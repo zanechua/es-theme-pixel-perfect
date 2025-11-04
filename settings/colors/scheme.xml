@@ -99,6 +99,9 @@ Website:  games.jessikarocha.com
     <text name="gridtile">
       <color>${fgColor}${percent.80}</color>
     </text>
+    <text name="md_description">
+      <color>${fgColor}</color>
+    </text>
     <text name="gridtile:selected">
       <color>${fgColor}</color>
     </text>
