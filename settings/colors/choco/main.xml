@@ -1,0 +1,8 @@
+<theme>
+  <formatVersion>7</formatVersion>
+
+  <subset name="Style" displayName="Style">
+    <include name="dark" displayName="Dark">./scheme-dark.xml</include>
+    <include name="light" displayName="Light">./scheme-light.xml</include>
+  </subset>
+</theme>

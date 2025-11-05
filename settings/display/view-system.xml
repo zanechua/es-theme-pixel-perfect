@@ -92,33 +92,11 @@ Website:  games.jessikarocha.com
       <zIndex>-50</zIndex>
     </image>
 
-    <!-- BACKGROUND FRONT ART -->
-    <image name="cover" extra="true">
-      <path>{random:image}</path>
-      <path>./assets/systems/${system.theme}.webp</path>
-      <size>1 0</size>
-      <origin>0 0.5</origin>
-      <pos>0 0.25</pos>
-      <zIndex>-9</zIndex>
-      <storyboard>
-        <animation property="opacity" from="0" to="1" begin="0" duration="1000" mode="easeOut" />
-      </storyboard>
-    </image>
-
     <image name="cover" extra="true" ifSubset="Background Style:custom">
       <path>./customBackground/${system.theme}.jpg</path>
       <path>./customBackground/${system.theme}.jpeg</path>
       <path>./customBackground/${system.theme}.png</path>
       <path>./customBackground/${system.theme}.webp</path>
-    </image>
-
-    <image name="cover_general" extra="true" ifSubset="Background Style:custom">
-      <path ifSubset="Style:dark">./background/default-dark.png</path>
-      <path ifSubset="Style:light">./background/default-light.png</path>
-      <size>1 0</size>
-      <origin>0 0</origin>
-      <pos>0 0.</pos>
-      <zIndex>-9</zIndex>
     </image>
   </view>
 

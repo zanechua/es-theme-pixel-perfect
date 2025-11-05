@@ -23,14 +23,10 @@ This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAl
   <!-- VARIABLES -->
   <include>./variables.xml</include>
 
-  <!-- LIGHT + DARK MODE SELCTION -->
-  <subset name="Style" displayName="Style">
-    <include name="dark" displayName="Dark" />
-    <include name="light" displayName="Light" />
-  </subset>
-
   <!-- COLOR DEFINITIONS -->
-  <include>./settings/colors/choco.xml</include>
+  <subset name="Color scheme" displayName="Color scheme">
+    <include name="choco" displayName="choco">./settings/colors/choco/main.xml</include>
+  </subset>
 
   <!-- FONT SIZE -->
   <subset name="FontSize" displayName="Font Size">
